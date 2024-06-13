@@ -1,8 +1,6 @@
-# E-commerce-Platform
+# Full-Stack E-commerce Platform
 
 ---
-
-### Full-Stack E-Commerce Platform
 
 This project is a simplified e-commerce platform built with React, Node.js, and MongoDB. It features user authentication, product management, a shopping cart, and a mock checkout process. Designed to demonstrate a wide range of web development skills, this application provides a functional prototype for an online store.
 
