@@ -1,0 +1,79 @@
+/* components/sidebar.css */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #3498db; /* Background color for the sidebar */
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure the sidebar is on top */
+    opacity: 0; /* Make it completely transparent */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(-100%); /* Move it out of view */
+}
+
+.sidebar.open {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Move it into view */
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 10px; /* Adjust to ensure it stays visible */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1010; /* Ensure it's above the menu items */
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.sidebar nav a:hover {
+    background: rgba(74, 0, 114, 0.5); /* Dark purple with opacity */
+    color: #fff;
+}
+
+/* Media queries */
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar nav a {
+        padding: 10px;
+    }
+
+    .sidebar .close-btn {
+        font-size: 20px;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .sidebar {
+        width: 50%;
+    }
+
+    .sidebar nav a {
+        padding: 12px;
+    }
+
+    .sidebar .close-btn {
+        font-size: 22px;
+    }
+}

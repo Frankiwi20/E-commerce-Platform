@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <header className="home-header">
-                <h1>Welcome to Our E-Commerce Platform</h1>
+                <h1>Welcome to Our E-Commerce Platform AlgoMart!</h1>
                 <p>Discover our amazing products and deals!</p>
             </header>
             <div className="home-content">
