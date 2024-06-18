@@ -4,6 +4,7 @@ import './Register.css';
 
 function Register() {
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,7 +17,7 @@ function Register() {
             const res = await axios.post('/api/register', formData);
             console.log('Register success:', res.data);
             localStorage.setItem('token', res.data.token);
-            // Redirect to a protected route or home page
+            // Redirect to login page or show success message
         } catch (err) {
             console.error('Register error:', err.response.data);
         }
@@ -43,13 +44,21 @@ function Register() {
                     required
                 />
                 <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password"
                     value={formData.password}
                     onChange={handleChange}
                     required
                 />
+                <div className="show-password">
+                    <input
+                        type="checkbox"
+                        checked={showPassword}
+                        onChange={() => setShowPassword(!showPassword)}
+                    />
+                    <label>Show Password</label>
+                </div>
                 <button type="submit" className="register-btn">Register</button>
             </form>
         </div>

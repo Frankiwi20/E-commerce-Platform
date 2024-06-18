@@ -15,6 +15,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
                 <Link to="/checkout" onClick={toggleSidebar}>Checkout</Link>
                 <Link to="/login" onClick={toggleSidebar}>Login</Link>
                 <Link to="/register" onClick={toggleSidebar}>Register</Link>
+                <Link to="/profile" onClick={toggleSidebar}>Profile</Link>
             </nav>
         </div>
     );
