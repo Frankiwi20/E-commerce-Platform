@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './homepage.css';
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
                     <div className="feature-item">
                         <h3>Customer Support</h3>
                         <p>We are here to help you 24/7.</p>
+                        <Link to="/support" className="support-link">Contact Support</Link>
                     </div>
                 </div>
             </div>

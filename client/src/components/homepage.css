@@ -2,14 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Raleway:wght@300;400;700&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
-    background-color: #f5f5f5; /* Light background color */
-}
-
 .home-container {
     text-align: center;
     padding: 20px;
@@ -113,6 +105,21 @@ body {
 .feature-item p {
     font-size: 1.2em;
     color: #777;
+}
+
+.support-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.support-link:hover {
+    background-color: #e5533d;
 }
 
 @keyframes fadeIn {
