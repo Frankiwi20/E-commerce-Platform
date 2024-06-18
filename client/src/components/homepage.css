@@ -17,7 +17,6 @@
 
 .home-header {
     background: #fff;
-    color: #333;
     padding: 50px 20px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -32,12 +31,18 @@
     font-size: 3em;
     margin-bottom: 10px;
     position: relative;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
     animation: fadeInDown 1s ease-out;
 }
 
 .home-header p {
     font-size: 1.5em;
-    color: #555;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
     animation: fadeInUp 1s ease-out;
 }
@@ -90,6 +95,7 @@
     flex: 1;
     min-width: 250px;
     transition: transform 0.3s ease;
+    position: relative;
 }
 
 .feature-item:hover {
@@ -99,12 +105,38 @@
 .feature-item h3 {
     font-size: 1.8em;
     margin-bottom: 10px;
-    color: #333;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .feature-item p {
     font-size: 1.2em;
-    color: #777;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quality-info, .shipping-info {
+    position: absolute;
+    top: 0; /* Position over the feature item */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    z-index: 100;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.feature-item:hover .quality-info, .feature-item:hover .shipping-info {
+    display: flex; /* Show the info on hover */
 }
 
 .support-link {

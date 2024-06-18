@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './homepage.css';
 
 const Home = () => {
+    const [showQualityInfo, setShowQualityInfo] = useState(false);
+    const [showShippingInfo, setShowShippingInfo] = useState(false);
+
+    const handleMouseEnterQuality = () => {
+        setShowQualityInfo(true);
+    };
+
+    const handleMouseLeaveQuality = () => {
+        setShowQualityInfo(false);
+    };
+
+    const handleMouseEnterShipping = () => {
+        setShowShippingInfo(true);
+    };
+
+    const handleMouseLeaveShipping = () => {
+        setShowShippingInfo(false);
+    };
+
     return (
         <div className="home-container">
             <header className="home-header">
@@ -15,13 +34,31 @@ const Home = () => {
                     <button className="shop-now-button">Shop Now</button>
                 </div>
                 <div className="home-features">
-                    <div className="feature-item">
+                    <div
+                        className="feature-item"
+                        onMouseEnter={handleMouseEnterQuality}
+                        onMouseLeave={handleMouseLeaveQuality}
+                    >
                         <h3>Quality Products</h3>
                         <p>Only the best for our customers.</p>
+                        {showQualityInfo && (
+                            <div className="quality-info">
+                                <p>We ensure the highest quality standards for our products.</p>
+                            </div>
+                        )}
                     </div>
-                    <div className="feature-item">
+                    <div
+                        className="feature-item"
+                        onMouseEnter={handleMouseEnterShipping}
+                        onMouseLeave={handleMouseLeaveShipping}
+                    >
                         <h3>Fast Delivery</h3>
                         <p>Get your items quickly and safely.</p>
+                        {showShippingInfo && (
+                            <div className="shipping-info">
+                                <p>Our shipping is reliable and fast, ensuring your items arrive on time.</p>
+                            </div>
+                        )}
                     </div>
                     <div className="feature-item">
                         <h3>Customer Support</h3>

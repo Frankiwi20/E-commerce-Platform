@@ -1,3 +1,4 @@
+/* Checkout.css */
 .checkout-container {
     padding: 20px;
     background-color: #ffffff;
@@ -10,7 +11,9 @@
 
 .checkout-container h1, .checkout-container h2 {
     margin-bottom: 20px;
-    color: #333;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .checkout-container form {
@@ -24,6 +27,14 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
+    background-color: white; /* Keep the background white */
+    color: transparent; /* Make the text transparent */
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347); /* Gradient for the text */
+    -webkit-background-clip: text; /* Clip the background to the text */
+}
+
+.checkout-container input::placeholder {
+    color: #aaa;
 }
 
 .checkout-btn {
@@ -35,4 +46,9 @@
     cursor: pointer;
     font-size: 1em;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #e57300;
 }

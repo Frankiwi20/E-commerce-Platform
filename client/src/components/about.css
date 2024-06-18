@@ -1,28 +1,47 @@
 /* About.css */
 .about-container {
-    padding: 20px;
+    padding: 30px; /* Increased padding for a bit more breathing room */
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1000px; /* Adjust this value as needed */
-    margin: 40px auto; /* Center the container horizontally */
-    text-align: center; /* Center text within the container */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* Adjusted max-width for better content fit */
+    margin: 40px auto;
+    text-align: center;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spacing between elements */
 }
 
 .about-container h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 20px;
     background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-align: center; /* Ensure the header text is centered */
+    text-align: center;
+    font-weight: 700; /* Added font-weight for emphasis */
+    letter-spacing: 1px; /* Slightly increased letter-spacing */
 }
 
 .about-container p {
     font-size: 1.2em;
-    color: #666;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     line-height: 1.6;
-    margin-bottom: 15px;
-    text-align: center; /* Ensure the paragraph text is centered */
+    margin: 0 20px; /* Added horizontal margins */
+    text-align: center;
+    max-width: 800px; /* Set max-width for better readability */
+}
+
+.about-container .highlight {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: none; /* Remove background for the highlighted text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

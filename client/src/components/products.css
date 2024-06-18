@@ -12,7 +12,9 @@
 .products-container h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #333;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .products-grid {
@@ -39,19 +41,23 @@
 
 .product-card h2 {
     font-size: 1.5em;
-    color: #333;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 10px 0;
 }
 
 .product-card p {
     font-size: 1.2em;
-    color: #666;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
 }
 
 .product-card .details-link {
     display: block;
-    background-color: #3498db;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
     color: white;
     text-decoration: none;
     padding: 10px;
