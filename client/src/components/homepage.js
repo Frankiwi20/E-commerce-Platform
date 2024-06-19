@@ -46,6 +46,7 @@ const Home = () => {
                                 <p>We ensure the highest quality standards for our products.</p>
                             </div>
                         )}
+                        <div className="discover-link">Discover!</div>
                     </div>
                     <div
                         className="feature-item"
@@ -59,6 +60,7 @@ const Home = () => {
                                 <p>Our shipping is reliable and fast, ensuring your items arrive on time.</p>
                             </div>
                         )}
+                        <div className="learn-more-link">Learn more</div>
                     </div>
                     <div className="feature-item">
                         <h3>Customer Support</h3>
