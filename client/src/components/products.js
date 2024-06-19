@@ -29,7 +29,7 @@ function Products() {
             <div className="products-grid">
                 {products.map(product => (
                     <div key={product._id} className="product-card">
-                        <img src={product.image} alt={product.title} />
+                        <img src={product.image} alt={product.name} />
                         <h2>{product.title}</h2>
                         <p>{`$${product.price.toFixed(2)}`}</p>
                         <p>Rating: {product.rating}</p>
@@ -43,3 +43,4 @@ function Products() {
 }
 
 export default Products;
+

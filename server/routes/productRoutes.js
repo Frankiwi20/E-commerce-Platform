@@ -12,23 +12,33 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get a single product by ID
+router.get('/:id', async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.json(product);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // Add a new product (for demonstration purposes, later this can be an admin feature)
 router.post('/', async (req, res) => {
-    const { name, description, price, image, link, category, brand, stock } = req.body;
+    const { title, price, rating, review_count, url } = req.body;
 
-    if (!name || !description || !price || !image || !link || !category || !brand || !stock) {
+    if (!title || !price || !rating || !review_count || !url) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
     const product = new Product({
-        name,
-        description,
+        title,
         price,
-        image,
-        link,
-        category,
-        brand,
-        stock,
+        rating,
+        review_count,
+        url
     });
 
     try {
