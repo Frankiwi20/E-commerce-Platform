@@ -14,10 +14,14 @@
     font-size: 1.5em;
     font-weight: bold;
     margin: 0;
-    flex: 1;
     text-align: center;
-    color: #ffffff; /* Ensure the text is solid white */
+    color: white !important;
+    background: none !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white !important;
+    flex-grow: 1;
 }
+
 
 .header-links {
     display: flex;
