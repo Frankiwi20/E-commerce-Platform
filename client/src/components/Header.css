@@ -1,0 +1,35 @@
+/* Header.css */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff8c00, #ffa500, #ff6347);
+    color: white;
+    position: relative;
+}
+
+.header-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+    color: #ffffff; /* Ensure the text is solid white */
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+}
+
+.header-links a {
+    color: #ffffff; /* Ensure links are also solid white */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-links a:hover {
+    text-decoration: underline;
+}
