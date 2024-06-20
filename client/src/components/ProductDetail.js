@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useCart } from './cartContext';
 import axios from 'axios';
 import './ProductDetail.css';
 
@@ -8,6 +9,7 @@ function ProductDetail() {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { dispatch } = useCart();
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -37,6 +39,10 @@ function ProductDetail() {
         return <p>Product not found.</p>;
     }
 
+    const handleAddToCart = () => {
+        dispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity: 1 } });
+    };
+
     return (
         <div className="product-detail-container">
             <h1>{product.title}</h1>
@@ -46,8 +52,10 @@ function ProductDetail() {
                     <p><strong>Price:</strong> ${parseFloat(product.price.replace('$', '')).toFixed(2)}</p>
                     <p><strong>Rating:</strong> {product.rating}</p>
                     <p><strong>Reviews:</strong> {product.review_count}</p>
-                    <a href={product.url} target="_blank" rel="noopener noreferrer">View on Amazon</a>
-                    <button className="add-to-cart">Add to Cart</button>
+                    <div className="link-container">
+                        <a href={product.url} target="_blank" rel="noopener noreferrer">View on Amazon</a>
+                        <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,4 +63,3 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
-

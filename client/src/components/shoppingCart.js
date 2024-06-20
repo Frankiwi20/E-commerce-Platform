@@ -1,25 +1,44 @@
 import React from 'react';
+import { useCart } from './cartContext';
 import './shoppingCart.css';
 
 function ShoppingCart() {
+    const { cart, dispatch } = useCart();
+
+    const handleRemoveFromCart = (id) => {
+        dispatch({ type: 'REMOVE_FROM_CART', payload: { _id: id } });
+    };
+
+    const handleIncrementQuantity = (id) => {
+        dispatch({ type: 'INCREMENT_QUANTITY', payload: { _id: id } });
+    };
+
+    const handleDecrementQuantity = (id) => {
+        dispatch({ type: 'DECREMENT_QUANTITY', payload: { _id: id } });
+    };
+
+    const total = cart.reduce((sum, item) => sum + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
+
     return (
         <div className="shopping-cart-container">
             <h1>Your Shopping Cart</h1>
-            <div className="cart-item">
-                <img src="product-image-url" alt="Product Name" />
-                <div className="item-info">
-                    <p><strong>Product Name</strong></p>
-                    <p><strong>Price:</strong> $100</p>
-                    <div className="quantity-control">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+            {cart.map(item => (
+                <div key={item._id} className="cart-item">
+                    <img src={item.image} alt={item.title} />
+                    <div className="item-info">
+                        <p><strong>{item.title}</strong></p>
+                        <p><strong>Price:</strong> ${parseFloat(item.price.replace('$', '')).toFixed(2)}</p>
+                        <div className="quantity-control">
+                            <button onClick={() => handleDecrementQuantity(item._id)}>-</button>
+                            <span>{item.quantity}</span>
+                            <button onClick={() => handleIncrementQuantity(item._id)}>+</button>
+                        </div>
+                        <button className="remove-item" onClick={() => handleRemoveFromCart(item._id)}>Remove</button>
                     </div>
-                    <button className="remove-item">Remove</button>
                 </div>
-            </div>
+            ))}
             <div className="cart-summary">
-                <p><strong>Total:</strong> $100</p>
+                <p><strong>Total:</strong> ${total.toFixed(2)}</p>
                 <button className="checkout-btn">Proceed to Checkout</button>
             </div>
         </div>
