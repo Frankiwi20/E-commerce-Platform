@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from './cartContext';
 import './shoppingCart.css';
 
 function ShoppingCart() {
     const { cart, dispatch } = useCart();
+    const navigate = useNavigate();
 
     const handleRemoveFromCart = (id) => {
         dispatch({ type: 'REMOVE_FROM_CART', payload: { _id: id } });
@@ -15,6 +17,10 @@ function ShoppingCart() {
 
     const handleDecrementQuantity = (id) => {
         dispatch({ type: 'DECREMENT_QUANTITY', payload: { _id: id } });
+    };
+
+    const handleCheckout = () => {
+        navigate('/checkout');
     };
 
     const total = cart.reduce((sum, item) => sum + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
@@ -39,7 +45,7 @@ function ShoppingCart() {
             ))}
             <div className="cart-summary">
                 <p><strong>Total:</strong> ${total.toFixed(2)}</p>
-                <button className="checkout-btn">Proceed to Checkout</button>
+                <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
             </div>
         </div>
     );

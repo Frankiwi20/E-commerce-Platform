@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './checkout.css';
+import { useCart } from './cartContext';
 
 function Checkout() {
     const [shippingInfo, setShippingInfo] = useState({
@@ -15,6 +17,9 @@ function Checkout() {
         expirationDate: '',
         cvv: ''
     });
+
+    const navigate = useNavigate();
+    const { dispatch } = useCart(); // Removed cart assignment
 
     const handleShippingChange = (e) => {
         const { name, value } = e.target;
@@ -34,9 +39,15 @@ function Checkout() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Shipping Info:', shippingInfo);
-        console.log('Payment Info:', paymentInfo);
+
+        // Save checkout information to localStorage
+        localStorage.setItem('checkoutInfo', JSON.stringify({ ...shippingInfo, ...paymentInfo }));
+
+        // Navigate to order confirmation page
+        navigate('/order-confirmation');
+
+        // Clear the cart after submission
+        dispatch({ type: 'CLEAR_CART' });
     };
 
     return (
