@@ -10,6 +10,7 @@ function ProductDetail() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const { dispatch } = useCart();
+    const [added, setAdded] = useState(false); // State to handle the animation
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -41,6 +42,8 @@ function ProductDetail() {
 
     const handleAddToCart = () => {
         dispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity: 1 } });
+        setAdded(true); // Trigger the animation
+        setTimeout(() => setAdded(false), 1000); // Reset after 1 second
     };
 
     return (
@@ -52,10 +55,13 @@ function ProductDetail() {
                     <p><strong>Price:</strong> ${parseFloat(product.price.replace('$', '')).toFixed(2)}</p>
                     <p><strong>Rating:</strong> {product.rating}</p>
                     <p><strong>Reviews:</strong> {product.review_count}</p>
-                    <div className="link-container">
-                        <a href={product.url} target="_blank" rel="noopener noreferrer">View on Amazon</a>
-                        <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
-                    </div>
+                    <a href={product.url} target="_blank" rel="noopener noreferrer" className="details-link">View on Amazon</a>
+                    <button
+                        className={`add-to-cart ${added ? 'added' : ''}`}
+                        onClick={handleAddToCart}
+                    >
+                        {added ? 'Added!' : 'Add to Cart'}
+                    </button>
                 </div>
             </div>
         </div>

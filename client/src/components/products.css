@@ -1,4 +1,11 @@
 /* Products.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 .products-container {
     padding: 20px;
     max-width: 1200px;
@@ -96,63 +103,6 @@
     background: linear-gradient(90deg, #ffa500, #ff8c00, #ff6347);
 }
 
-.carousel .control-next.control-arrow, .carousel .control-prev.control-arrow {
-    background: rgba(255, 140, 0, 0.6); /* Add opacity */
-    border-radius: 50%;
-    opacity: 1;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel .control-next.control-arrow:before, .carousel .control-prev.control-arrow:before {
-    border: none;
-    content: '';
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-top: 4px solid #ff8c00;
-    border-right: 4px solid #ff8c00;
-    transform: rotate(45deg);
-    border-radius: 5px; /* Rounded ends */
-}
-
-.carousel .control-next.control-arrow:before {
-    transform: rotate(-45deg); /* Pointing right */
-}
-
-.carousel .control-prev.control-arrow:before {
-    transform: rotate(135deg); /* Pointing left */
-}
-
-.carousel .control-next.control-arrow, .carousel .control-prev.control-arrow {
-    background: rgba(255, 140, 0, 0.6); /* Add opacity */
-    border-radius: 50%;
-    opacity: 1;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.carousel .control-prev.control-arrow {
-    left: 0;
-}
-
-.carousel .control-next.control-arrow {
-    right: 0;
-}
-
-.carousel .control-next.control-arrow:hover, .carousel .control-prev.control-arrow:hover {
-    background: rgba(255, 165, 0, 0.8); /* Add opacity */
-}
-
 /* Centering the carousel container */
 .carousel .slider-wrapper {
     display: flex;
@@ -161,3 +111,27 @@
     height: 100%;
     padding: 20px 0;
 }
+
+/* Button and Link Animations */
+.product-card .details-link, .add-to-cart {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.product-card .details-link::before, .add-to-cart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.product-card .details-link:hover::before, .add-to-cart:hover::before {
+    left: 100%;
+}
+

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './UserProfile.css';
 
 function UserProfile() {
     const [userData, setUserData] = useState({ name: '', email: '' });
+    const [orderHistory, setOrderHistory] = useState([]);
     const [editMode, setEditMode] = useState(false);
     const [error, setError] = useState(null);
 
@@ -14,11 +15,22 @@ function UserProfile() {
                 const res = await axios.get('/api/user', { headers: { 'x-auth-token': token } });
                 setUserData(res.data);
             } catch (error) {
-                setError('Failed to fetch user data');
                 console.error('Error fetching user data:', error.response ? error.response.data : error.message);
             }
         };
+
+        const fetchOrderHistory = async () => {
+            const token = localStorage.getItem('token');
+            try {
+                const res = await axios.get('/api/orders', { headers: { 'x-auth-token': token } });
+                setOrderHistory(res.data);
+            } catch (error) {
+                console.error('Error fetching order history:', error.response ? error.response.data : error.message);
+            }
+        };
+
         fetchUserData();
+        fetchOrderHistory();
     }, []);
 
     const handleChange = (e) => {
@@ -70,6 +82,30 @@ function UserProfile() {
                     <button onClick={() => setEditMode(true)}>Edit</button>
                 </div>
             )}
+            <div className="order-history-container">
+                <h2>Order History</h2>
+                {orderHistory.length > 0 ? (
+                    <ul>
+                        {orderHistory.map((order) => (
+                            <li key={order._id}>
+                                <p><strong>Order ID:</strong> {order._id}</p>
+                                <p><strong>Date:</strong> {new Date(order.date).toLocaleDateString()}</p>
+                                <p><strong>Total:</strong> ${order.total.toFixed(2)}</p>
+                                <p><strong>Items:</strong></p>
+                                <ul>
+                                    {order.items.map((item) => (
+                                        <li key={item._id}>
+                                            {item.title} - ${item.price.toFixed(2)} x {item.quantity}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No orders found.</p>
+                )}
+            </div>
         </div>
     );
 }

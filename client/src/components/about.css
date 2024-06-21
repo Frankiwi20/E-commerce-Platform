@@ -1,4 +1,11 @@
 /* About.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 .about-container {
     padding: 30px; /* Increased padding for a bit more breathing room */
     background-color: #ffffff;

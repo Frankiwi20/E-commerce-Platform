@@ -33,7 +33,14 @@ function Products() {
     return (
         <div className="products-container">
             <h1>Products</h1>
-            <Carousel showArrows={true} infiniteLoop={true} showThumbs={false}>
+            <Carousel
+                showArrows={false}
+                infiniteLoop={true}
+                showThumbs={false}
+                autoPlay={true}
+                interval={4000}
+                transitionTime={500}
+            >
                 {groupedProducts.map((group, index) => (
                     <div key={index} className="products-grid">
                         {group.map(product => (
@@ -54,4 +61,5 @@ function Products() {
 }
 
 export default Products;
+
 
