@@ -1,5 +1,3 @@
-/* Home.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Raleway:wght@300;400;700&display=swap');
 
 .home-container {
@@ -11,15 +9,16 @@
     color: #333;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
     align-items: center;
+    margin-top: 20px; /* Added margin-top to move containers closer to the header */
 }
 
 .home-header {
     background: #fff;
     padding: 50px 20px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reduced margin-bottom */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
@@ -55,7 +54,7 @@
 }
 
 .home-intro {
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reduced margin-bottom */
 }
 
 .shop-now-button {
@@ -94,12 +93,13 @@
     margin: 10px;
     flex: 1;
     min-width: 250px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
 
 .feature-item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .feature-item h3 {
@@ -119,7 +119,7 @@
 
 .quality-info, .shipping-info {
     position: absolute;
-    top: 0; /* Position over the feature item */
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -129,14 +129,14 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
     z-index: 100;
-    display: none; /* Initially hidden */
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
 .feature-item:hover .quality-info, .feature-item:hover .shipping-info {
-    display: flex; /* Show the info on hover */
+    display: flex;
 }
 
 .support-link {
@@ -147,11 +147,12 @@
     color: white;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .support-link:hover {
     background-color: #e5533d;
+    transform: scale(1.05);
 }
 
 .learn-more-link, .discover-link {
@@ -162,11 +163,12 @@
     color: white;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .learn-more-link:hover, .discover-link:hover {
     background-color: #e5533d;
+    transform: scale(1.05);
 }
 
 @keyframes fadeIn {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Carousel } from 'react-responsive-carousel';
+import LazyLoad from 'react-lazyload';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './products.css';
 
@@ -45,7 +46,9 @@ function Products() {
                     <div key={index} className="products-grid">
                         {group.map(product => (
                             <div key={product._id} className="product-card">
-                                <img src={product.image} alt={product.name} />
+                                <LazyLoad height={200} offset={100}>
+                                    <img src={product.image} alt={product.name} />
+                                </LazyLoad>
                                 <h2>{product.title}</h2>
                                 <p>{`$${product.price.toFixed(2)}`}</p>
                                 <p>Rating: {product.rating}</p>
