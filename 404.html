@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title>Page Not Found</title>
     <script>
-        // Redirect all paths to the homepage
-        window.location.replace("/E-commerce-Platform/");
+        var pathname = window.location.pathname;
+
+        if (!pathname.startsWith('/E-commerce-Platform')) {
+            var newPathname = '/E-commerce-Platform' + pathname;
+            window.location.replace(newPathname);
+        } else {
+            window.location.replace('/E-commerce-Platform');
+        }
     </script>
 </head>
 <body>
@@ -13,5 +19,4 @@
 <p>Redirecting to the homepage...</p>
 </body>
 </html>
-
 
