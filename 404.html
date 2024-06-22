@@ -6,12 +6,11 @@
     <script>
         var pathname = window.location.pathname;
 
-        // Prevent infinite redirection loop
+        // Redirect all paths to the index.html
         if (!pathname.startsWith('/E-commerce-Platform')) {
             var newPathname = '/E-commerce-Platform' + pathname;
             window.location.replace(newPathname);
         } else {
-            // If it already starts with /E-commerce-Platform, redirect to base
             window.location.replace('/E-commerce-Platform');
         }
     </script>
@@ -21,3 +20,4 @@
 <p>Redirecting...</p>
 </body>
 </html>
+
