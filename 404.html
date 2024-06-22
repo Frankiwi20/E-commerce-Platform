@@ -5,8 +5,12 @@
     <title>Page Not Found</title>
     <script>
         var pathname = window.location.pathname;
+
         if (!pathname.startsWith('/E-commerce-Platform')) {
-            window.location.replace('/E-commerce-Platform/');
+            var newPathname = '/E-commerce-Platform' + pathname;
+            window.location.replace(newPathname);
+        } else {
+            window.location.replace('/E-commerce-Platform');
         }
     </script>
 </head>
@@ -15,3 +19,4 @@
 <p>Redirecting to the homepage...</p>
 </body>
 </html>
+
